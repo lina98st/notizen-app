@@ -26,7 +26,7 @@ Ein Fullstack-Projekt mit:
 ### 🔧 1. Projekt klonen
 
 ```bash
-git clone https://github.com/DEIN-USERNAME/notizen-app.git
+git clone https://github.com/lina98st/notizen-app
 cd notizen-app
 ```
 
