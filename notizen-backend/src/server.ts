@@ -17,20 +17,20 @@ const db = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-// 🚀 GET: Alle Notizen
+// GET: Alle Notizen
 app.get("/api/notes", async (req: Request, res: Response) => {
   const [rows] = await db.query("SELECT * FROM notes");
   res.json(rows);
 });
 
-// ➕ POST: Neue Notiz
+// POST: Neue Notiz
 app.post("/api/notes", async (req: Request, res: Response) => {
   const { title, content } = req.body;
   await db.query("INSERT INTO notes (title, content) VALUES (?, ?)", [title, content]);
   res.status(201).json({ message: "Notiz hinzugefügt" });
 });
 
-// 🗑️ DELETE: Notiz löschen
+// DELETE: Notiz löschen
 app.delete("/api/notes/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   await db.query("DELETE FROM notes WHERE id = ?", [id]);
